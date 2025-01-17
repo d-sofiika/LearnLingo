@@ -10,8 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "glob": "^11.0.1",
+    "inflight": "^1.0.6",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "rimraf": "^6.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
