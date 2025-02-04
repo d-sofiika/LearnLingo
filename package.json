@@ -10,13 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "formik": "^2.4.6",
     "glob": "^11.0.1",
     "inflight": "^1.0.6",
     "modern-normalize": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^7.1.2",
-    "rimraf": "^6.0.1"
+    "rimraf": "^6.0.1",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

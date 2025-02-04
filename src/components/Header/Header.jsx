@@ -1,8 +1,14 @@
 import { NavLink } from "react-router-dom";
 import LogoUkraine from "../../../public/LogoUkraine.svg";
 import css from "./Header.module.css";
+import { useState } from "react";
+import LogIn from "../LogIn/LogIn";
+import Registration from "../Registration/Registration";
 
 export default function Header() {
+
+  const [isLogInOpen, setIsLogInOpen] = useState(false);
+    const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
   return (
     <div className={`section ${css.headerContainer}`}>
       <nav>
@@ -21,16 +27,18 @@ export default function Header() {
         </NavLink>
       </nav>
       <div className={css.buttonBox}>
-        <button type="button" className={css.btnLogIn}>
+        <button type="button" onClick={() => setIsLogInOpen(true)} className={css.btnLogIn}>
           <svg width="26" height="24" className={css.logIcon}>
             <use href="/sprite.svg#icon-log-in"></use>
           </svg>
           <p>Log in</p>
         </button>
-        <button type="button" className={css.btnRegist}>
+        <button type="button" onClick={() => setIsRegistrationOpen(true)} className={css.btnRegist}>
           Registration
         </button>
       </div>
-    </div>
+       <LogIn isLogInOpen={isLogInOpen} setIsLogInOpen={setIsLogInOpen} />
+    <Registration isRegistrationOpen={isRegistrationOpen} setIsRegistrationOpen={setIsRegistrationOpen}/>    </div>
+    
   );
 }
