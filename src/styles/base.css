@@ -92,6 +92,9 @@ input:focus {
   place-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 100vw;
+  
   padding: 0 64px;
+}
+.container{
+  width: 100vw;
 }

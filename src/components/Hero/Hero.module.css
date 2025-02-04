@@ -1,5 +1,4 @@
 .heroContainer {
-  display: flex;
   flex-direction: row;
   gap: 24px;
   max-height: 530px;
