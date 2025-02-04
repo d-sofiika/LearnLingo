@@ -75,10 +75,7 @@ img {
   height: auto;
 }
 
-svg {
-  stroke: none;
-  fill: var(var(--main));
-}
+
 
 button {
   cursor: pointer;
