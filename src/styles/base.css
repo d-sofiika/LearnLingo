@@ -1,59 +1,62 @@
 :root {
-    font-family: "Roboto", sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
---main: #101828;
-    --yellow: #F4C550;
-    --beige: #FBE9BA;
-    --dark-gray: #9FBAAE;
-    --light: #CBDED3;
-    --dark-blue: #9FB7CE;
-    --blue: #BFD6EA;
-    --pink: #E0A39A;
-    --light-pink1: #F2C0BD;
-    --orange-pink: #F0AA8D;
-    --light-pink2: #F4C8BA;
-   
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  --main:#121417;
+  --yellow: #f4c550;
+  --beige: #fbe9ba;
+  --dark-gray: #9fbaae;
+  --light: #cbded3;
+  --dark-blue: #9fb7ce;
+  --blue: #bfd6ea;
+  --pink: #e0a39a;
+  --light-pink1: #f2c0bd;
+  --orange-pink: #f0aa8d;
+  --light-pink2: #f4c8ba;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0 auto;
-    display: flex;
-    place-items: center;
-    justify-content: center;
-    font-family: "Inter", sans-serif;
-    line-height: 1.5;
-    overflow-x: hidden;
+  margin: 0 auto;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  color: var(--main);
+  line-height: 1.5;
+  overflow-x: hidden;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
+  color: var(--main)
 }
 
 a:visited {
-    text-decoration: none;
+  text-decoration: none;
+  color: var(--main)
 }
 
 ul,
 ol {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 li {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
 
 h1,
@@ -63,27 +66,35 @@ h4,
 h5,
 h6,
 p {
-    margin: 0;
+  margin: 0;
 }
 
 img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 svg {
-    stroke: none;
-    fill: var(var(--main));
+  stroke: none;
+  fill: var(var(--main));
 }
 
 button {
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
 
 input:focus {
-    outline: none;
-    border: none;
+  outline: none;
+  border: none;
+}
+.section {
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  padding: 0 64px;
 }

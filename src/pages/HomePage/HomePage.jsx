@@ -1,9 +1,10 @@
-import css from "./HomePage.module.css"
+import Header from "../../components/Header/Header";
+
 
 const HomePage = () => {
   return (
     <div className="container">
-        <p className={css.pp}>jjjj</p>
+        <Header/>
     </div>
   );
 };
