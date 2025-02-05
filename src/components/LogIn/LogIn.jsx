@@ -2,7 +2,8 @@ import Modal from "../Modal/Modal";
 import css from "./LogIn.module.css";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
-
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../redux/firebase';
 
 export default function LogIn({ isLogInOpen, setIsLogInOpen }) {
   const FeedbackSchema = Yup.object().shape({
@@ -14,10 +15,23 @@ password: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Requi
     password: "",
   };
 
-   const handleSubmit = (values, actions) => {
-		console.log(values);
-		actions.resetForm();
-	};
+  
+ const handleSubmit = async (values, actions) => {
+    const { email, password } = values;
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      console.log("User logged in:", user);
+
+      actions.resetForm();
+      setIsLogInOpen(false);
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+ 
+      console.error("Error:", errorCode, errorMessage);
+    }
+  };
 
   return (
     <Modal isOpen={isLogInOpen} onClose={() => setIsLogInOpen(false)}>
