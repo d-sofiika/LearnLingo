@@ -1,0 +1,58 @@
+.selectWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.select {
+  appearance: none;
+  border: none;
+  border-radius: 14px;
+  padding: 0px 18px;
+  align-content: center;
+  width: 198px;
+  height: 52px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 111%;
+
+  background-color: #fff;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23121417' stroke-width='6.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 24l16 16 16-16'/%3E%3C/svg%3E");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+  border-radius: 12px;
+  width: 221px;
+  background-color: #fff;
+  padding: 18px 14px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 111%;
+  color: rgba(18, 20, 23, 0.2);
+  width: 198px;
+}
+.option{
+  white-space: nowrap;
+    /* Забороняє перенесення тексту */
+    overflow: hidden;
+    /* Ховає зайвий текст */
+    text-overflow: ellipsis;
+    /* Додає три крапки, якщо текст не влазить */
+    max-width: 100%;
+}
+.option:hover {
+  color: var(--main);
+  cursor: pointer;
+}
+.selected {
+  color: var(--main);
+
+}

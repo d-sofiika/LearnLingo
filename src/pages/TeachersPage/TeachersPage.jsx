@@ -1,9 +1,10 @@
-import css from "./TeachersPage.module.css"
+import Filters from "../../components/Filters/Filters";
+ import css from "./TeachersPage.module.css"
 
 const TeachersPage    = () => {
   return (
-    <div className="container">
-        <p className={css.pp}>jjjj</p>
+    <div className={`container ${css.teachersPageContainer}`}>
+        <Filters/>
     </div>
   );
 };
