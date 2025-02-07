@@ -1,0 +1,125 @@
+.title {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.descr {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 137%;
+  color: rgba(18, 20, 23, 0.8);
+  margin-bottom: 20px;
+}
+.teacherBox {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.avatar {
+  border-radius: 100px;
+
+  border-radius: 100px;
+  width: 44px;
+  height: 44px;
+}
+
+.littleTitle {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  color: #8a8a89;
+  margin-bottom: 4px;
+}
+
+.name {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+}
+.radioWrapper
+{
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 40px;
+}
+.radioBox{
+    display: flex;
+    gap: 8px;
+}
+.error {
+  padding-left: 5px;
+  color: red;
+}
+input[type="radio"] {
+  display: none;
+}
+
+/* Стилізація кастомної радіокнопки */
+input[type="radio"]+label {
+  position: relative;
+  padding-left: 28px;
+
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Створення кола для радіокнопки (початковий стан) */
+input[type="radio"]+label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 3px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #8a8a89;;
+  /* Чорний бордер */
+  background-color: white;
+  /* Білий фон */
+  border-radius: 50%;
+}
+
+/* Колір радіокнопки при виборі */
+input[type="radio"]:checked+label::before {
+  background-color: var(--yellow);
+  /* Жовта серединка */
+  border:4px solid white;
+  /* Білий внутрішній бордер */
+  box-shadow: 0 0 0 2px var(--yellow);
+  /* Жовтий зовнішній бордер */
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.input {
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  border-radius: 12px;
+  padding: 16px 18px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 137%;
+}
+
+input::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 137%;
+  color: var(--main);
+}
+.btn{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+    
+  background-color: var(--yellow);
+  border-radius: 12px;
+    padding: 16px 0;
+   
+    margin-top: 40px;
+}

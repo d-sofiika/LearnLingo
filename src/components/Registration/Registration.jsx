@@ -2,8 +2,8 @@ import Modal from "../Modal/Modal";
 import css from "./Registration.module.css";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth, db } from '../../redux/firebase';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../../redux/firebase";
 import { ref, set } from "firebase/database";
 
 export default function Registration({
@@ -12,47 +12,56 @@ export default function Registration({
 }) {
   const FeedbackSchema = Yup.object().shape({
     name: Yup.string()
-      .min(2, "Too Short!")
-      .max(50, "Too Long!")
+      .min(2, "Too short!")
+      .max(50, "Too long!")
+      .matches(/^[a-zA-Z\s]+$/, "Only letters are allowed")
       .required("Required"),
     email: Yup.string()
-      .min(2, "Too Short!")
-      .max(50, "Too Long!")
+      .email("Invalid email format")
       .required("Required"),
     password: Yup.string()
-      .min(2, "Too Short!")
-      .max(50, "Too Long!")
+      .min(8, "Password must be at least 8 characters")
+      .max(30, "Password too long")
+      .matches(/[A-Z]/, "Must contain at least one uppercase letter")
+      .matches(/[a-z]/, "Must contain at least one lowercase letter")
+      .matches(/\d/, "Must contain at least one number")
+      .matches(
+        /[@$!%*?&]/,
+        "Must contain at least one special character (@$!%*?&)"
+      )
       .required("Required"),
   });
+
   const initValues = {
     name: "",
     email: "",
     password: "",
   };
 
-
-
-
-const handleSubmit = async (values, actions) => {
+  const handleSubmit = async (values, actions) => {
     const { name, email, password } = values;
 
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = userCredential.user;
-      console.log('User registered:', user);
+      console.log("User registered:", user);
 
-      await set(ref(db, 'users/' + user.uid), {
+      await set(ref(db, "users/" + user.uid), {
         name: name,
         email: email,
       });
-      console.log('User name and email added to Realtime Database');
+      console.log("User name and email added to Realtime Database");
 
       actions.resetForm();
       setIsRegistrationOpen(false);
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.error('Error:', errorCode, errorMessage);
+      console.error("Error:", errorCode, errorMessage);
       alert("Error: " + error.message);
     }
   };

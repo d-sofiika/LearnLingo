@@ -3,6 +3,7 @@ import ShortInfo from "../ShortInfo/ShortInfo";
 import css from "./TeacherItem.module.css";
 import Reviews from "../Reviews/Reviews";
 import LevelLanguages from "../LevelLanguages/LevelLanguages";
+import BookTrial from "../BookTrial/BookTrial";
 
 export default function TeachersItem({ teacher }) {
   const {
@@ -18,6 +19,7 @@ export default function TeachersItem({ teacher }) {
     levels,
   } = teacher;
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isBookOpen, setIsBookOpen] = useState(false);
 
   return (
     <li className={css.item} key={id}>
@@ -46,6 +48,7 @@ export default function TeachersItem({ teacher }) {
         )}
         {!isExpanded && (
           <button
+            type="button"
             onClick={() => setIsExpanded(true)}
             className={css.readMoreBtn}
           >
@@ -55,12 +58,14 @@ export default function TeachersItem({ teacher }) {
         <LevelLanguages levels={levels} />
         {isExpanded && (
           <button
-            
+            type="button"
+            onClick={() => setIsBookOpen(true)}
             className={css.bookTrialBtn}
           >
             Book trial lesson
           </button>
         )}
+              <BookTrial teacher={teacher} isBookOpen={isBookOpen} setIsBookOpen={setIsBookOpen} />
       </div>
     </li>
   );
