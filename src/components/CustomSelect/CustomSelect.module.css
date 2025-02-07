@@ -39,14 +39,11 @@
   color: rgba(18, 20, 23, 0.2);
   width: 198px;
 }
-.option{
+.option {
   white-space: nowrap;
-    /* Забороняє перенесення тексту */
-    overflow: hidden;
-    /* Ховає зайвий текст */
-    text-overflow: ellipsis;
-    /* Додає три крапки, якщо текст не влазить */
-    max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 .option:hover {
   color: var(--main);
@@ -54,5 +51,4 @@
 }
 .selected {
   color: var(--main);
-
 }
