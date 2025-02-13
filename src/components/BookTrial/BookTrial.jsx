@@ -26,6 +26,7 @@ export default function BookTrial({ isBookOpen, setIsBookOpen, teacher }) {
     console.log("values", values);
     actions.resetForm();
   };
+  
   return (
     <Modal isOpen={isBookOpen} onClose={() => setIsBookOpen(false)}>
       <h2 className={css.title}>Book trial lesson</h2>

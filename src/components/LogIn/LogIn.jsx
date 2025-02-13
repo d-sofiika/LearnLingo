@@ -4,6 +4,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../redux/firebase";
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function LogIn({ isLogInOpen, setIsLogInOpen }) {
   const FeedbackSchema = Yup.object().shape({
@@ -34,18 +35,19 @@ export default function LogIn({ isLogInOpen, setIsLogInOpen }) {
       );
       const user = userCredential.user;
       console.log("User logged in:", user);
-
+toast.success("Logged is successfully!");
       actions.resetForm();
       setIsLogInOpen(false);
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
-
+ toast.error("Failed. Please try again.");
       console.error("Error:", errorCode, errorMessage);
     }
   };
 
   return (
+    <>
     <Modal isOpen={isLogInOpen} onClose={() => setIsLogInOpen(false)}>
       <h2 className={css.title}>Log In</h2>
       <p className={css.descr}>
@@ -82,5 +84,7 @@ export default function LogIn({ isLogInOpen, setIsLogInOpen }) {
         </Form>
       </Formik>
     </Modal>
+      <Toaster position="top-right" reverseOrder={false} />
+      </>
   );
 }

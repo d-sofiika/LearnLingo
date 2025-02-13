@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../redux/firebase";
 import { ref, set } from "firebase/database";
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Registration({
   isRegistrationOpen,
@@ -49,7 +50,7 @@ export default function Registration({
       );
       const user = userCredential.user;
       console.log("User registered:", user);
-
+toast.success("Registered is successfully!");
       await set(ref(db, "users/" + user.uid), {
         name: name,
         email: email,
@@ -62,11 +63,12 @@ export default function Registration({
       const errorCode = error.code;
       const errorMessage = error.message;
       console.error("Error:", errorCode, errorMessage);
-      alert("Error: " + error.message);
+       toast.error("Failed. Please try again.");
     }
   };
 
   return (
+    <>
     <Modal
       isOpen={isRegistrationOpen}
       onClose={() => setIsRegistrationOpen(false)}
@@ -113,5 +115,7 @@ export default function Registration({
         </Form>
       </Formik>
     </Modal>
+    <Toaster position="top-right" reverseOrder={false} />
+      </>
   );
 }

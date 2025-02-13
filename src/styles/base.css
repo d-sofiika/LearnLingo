@@ -96,7 +96,7 @@ input:focus {
   display: flex;
   place-items: center;
   justify-content: center;
-  flex-direction: column;
+ 
   
   padding: 0 64px;
 }
