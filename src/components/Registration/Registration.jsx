@@ -5,21 +5,20 @@ import * as Yup from "yup";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../redux/firebase";
 import { ref, set } from "firebase/database";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Registration({
   isRegistrationOpen,
   setIsRegistrationOpen,
 }) {
+  
   const FeedbackSchema = Yup.object().shape({
     name: Yup.string()
       .min(2, "Too short!")
       .max(50, "Too long!")
       .matches(/^[a-zA-Z\s]+$/, "Only letters are allowed")
       .required("Required"),
-    email: Yup.string()
-      .email("Invalid email format")
-      .required("Required"),
+    email: Yup.string().email("Invalid email format").required("Required"),
     password: Yup.string()
       .min(8, "Password must be at least 8 characters")
       .max(30, "Password too long")
@@ -49,13 +48,11 @@ export default function Registration({
         password
       );
       const user = userCredential.user;
-      console.log("User registered:", user);
-toast.success("Registered is successfully!");
+      toast.success("Registered is successfully!");
       await set(ref(db, "users/" + user.uid), {
         name: name,
         email: email,
       });
-      console.log("User name and email added to Realtime Database");
 
       actions.resetForm();
       setIsRegistrationOpen(false);
@@ -63,59 +60,60 @@ toast.success("Registered is successfully!");
       const errorCode = error.code;
       const errorMessage = error.message;
       console.error("Error:", errorCode, errorMessage);
-       toast.error("Failed. Please try again.");
+      toast.error("Failed. Please try again.");
     }
   };
 
   return (
     <>
-    <Modal
-      isOpen={isRegistrationOpen}
-      onClose={() => setIsRegistrationOpen(false)}
-    >
-      <h2 className={css.title}>Registration</h2>
-      <p className={css.descr}>
-        Thank you for your interest in our platform! In order to register, we
-        need some information. Please provide us with the following information
-      </p>
-      <Formik
-        initialValues={initValues}
-        onSubmit={handleSubmit}
-        validationSchema={FeedbackSchema}
+      <Modal
+        isOpen={isRegistrationOpen}
+        onClose={() => setIsRegistrationOpen(false)}
       >
-        <Form className={css.form}>
-          <Field
-            className={css.input}
-            type="text"
-            name="name"
-            placeholder="Name"
-          />
-          <ErrorMessage name="name" component="span" className={css.error} />
-          <Field
-            className={css.input}
-            type="email"
-            name="email"
-            placeholder="Email"
-          />
-          <ErrorMessage name="email" component="span" className={css.error} />
-          <Field
-            className={css.input}
-            type="password"
-            name="password"
-            placeholder="Password"
-          />
-          <ErrorMessage
-            name="password"
-            component="span"
-            className={css.error}
-          />
-          <button type="submit" className={css.btn}>
-            Sign Up
-          </button>
-        </Form>
-      </Formik>
-    </Modal>
-    <Toaster position="top-right" reverseOrder={false} />
-      </>
+        <h2 className={css.title}>Registration</h2>
+        <p className={css.descr}>
+          Thank you for your interest in our platform! In order to register, we
+          need some information. Please provide us with the following
+          information
+        </p>
+        <Formik
+          initialValues={initValues}
+          onSubmit={handleSubmit}
+          validationSchema={FeedbackSchema}
+        >
+          <Form className={css.form}>
+            <Field
+              className={css.input}
+              type="text"
+              name="name"
+              placeholder="Name"
+            />
+            <ErrorMessage name="name" component="span" className={css.error} />
+            <Field
+              className={css.input}
+              type="email"
+              name="email"
+              placeholder="Email"
+            />
+            <ErrorMessage name="email" component="span" className={css.error} />
+            <Field
+              className={css.input}
+              type="password"
+              name="password"
+              placeholder="Password"
+            />
+            <ErrorMessage
+              name="password"
+              component="span"
+              className={css.error}
+            />
+            <button type="submit" className={css.btn}>
+              Sign Up
+            </button>
+          </Form>
+        </Formik>
+      </Modal>
+      <Toaster position="top-right" reverseOrder={false} />
+    </>
   );
 }

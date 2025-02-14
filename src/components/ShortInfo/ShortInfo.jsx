@@ -1,6 +1,11 @@
+
+import Favorite from "../Favorite/Favorite";
 import css from "./ShortInfo.module.css";
 
 export default function ShortInfo({ teacher }) {
+
+
+
   return (
     <div className={css.wrapperShortInfo}>
       <div className={css.wrapper}>
@@ -23,11 +28,7 @@ export default function ShortInfo({ teacher }) {
       <p>
         Price / 1 hour: <span className={css.accent}>{teacher.price_per_hour}$</span>
       </p>
-      <button type="button">
-      <svg width="26" height="26" className={css.heartIcon}>
-        <use href="/sprite.svg#icon-heart"></use>
-        </svg>
-        </button>
+     <Favorite teacher={teacher}/>
     </div>
   );
 }

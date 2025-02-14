@@ -1,30 +1,25 @@
 import css from "./Header.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import LogIn from "../LogIn/LogIn";
 import Registration from "../Registration/Registration";
 import LogOut from "../LogOut/LogOut";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import NavLinks from "../NavLinks/NavLinks";
+import { useAuth } from "../AuthContext";
 
 export default function Header() {
   const [isLogOutOpen, setIsLogOutOpen] = useState(false);
   const [isLogInOpen, setIsLogInOpen] = useState(false);
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+ 
+  const { currentUser } = useAuth();
+  
 
-  useEffect(() => {
-    const auth = getAuth();
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setIsAuthenticated(!!user);
-    });
-    return () => unsubscribe();
-  }, []);
 
   return (
     <div className={`section ${css.headerContainer}`}>
       <NavLinks/>
       <div className={css.buttonBox}>
-        {isAuthenticated ? (
+        {currentUser ? (
           <button
             type="button"
             onClick={() => setIsLogOutOpen(true)}
@@ -48,7 +43,7 @@ export default function Header() {
           </button>
         )}
 
-        {!isAuthenticated && (
+        {!currentUser&& (
           <button
             type="button"
             onClick={() => setIsRegistrationOpen(true)}

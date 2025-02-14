@@ -1,0 +1,13 @@
+.heartIcon {
+  margin-left: 64px;
+  transition: box-shadow 0.3s ease;
+}
+.heartRed {
+  fill: #f4c550;
+  stroke: #f4c550;
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.2));
+}
+.heartIcon:hover,
+.heartIcon:hover {
+  filter: drop-shadow(0px 6px 8px rgba(0, 0, 0, 0.3));
+}
