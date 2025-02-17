@@ -7,11 +7,13 @@ import css from "./Favorite.module.css";
 import { onValue, ref } from "firebase/database";
 import { useAuth } from "../AuthContext";
 import { db } from "../../redux/firebase";
+import ModalAlert from "../ModalAlert/ModalAlert";
 
 export default function Favorite({ teacher }) {
   const { currentUser } = useAuth();
   const [isFavorite, setIsFavorite] = useState(false);
-
+  const [isModalAlertOpen, setIsModalAlertOpen] = useState(false);
+  
   useEffect(() => {
     if (!currentUser) return;
 
@@ -19,6 +21,8 @@ export default function Favorite({ teacher }) {
     onValue(favRef, (snapshot) => setIsFavorite(snapshot.exists()));
   }, [teacher.id, currentUser]);
 
+
+  
   const toggleFavorite = () => {
     if (!currentUser) return;
     if (isFavorite) {
@@ -28,7 +32,11 @@ export default function Favorite({ teacher }) {
     }
   };
   return (
-    <button onClick={toggleFavorite} type="button">
+    <>
+    <button
+      onClick={currentUser ?  toggleFavorite  : ()=>{setIsModalAlertOpen(true)} }
+      type="button"
+    >
       <svg
         width="26"
         height="26"
@@ -39,5 +47,7 @@ export default function Favorite({ teacher }) {
         <use href="/sprite.svg#icon-heart"></use>
       </svg>
     </button>
+      <ModalAlert isModalAlertOpen={isModalAlertOpen} setIsModalAlertOpen={setIsModalAlertOpen} />
+      </>
   );
 }
