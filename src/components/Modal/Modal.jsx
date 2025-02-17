@@ -18,7 +18,13 @@ export default function Modal ({ isOpen, onClose, children }) {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen, onClose]);
-
+useEffect(() => {
+  if (isOpen) {
+    document.body.classList.add("modal-open");
+  } else {
+    document.body.classList.remove("modal-open");
+  }
+}, [isOpen]);
   const handleOverlayClick = (event) => {
     if (event.target === event.currentTarget) {
       onClose();

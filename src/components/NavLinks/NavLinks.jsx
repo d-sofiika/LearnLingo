@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
 import LogoUkraine from "../../../public/LogoUkraine.svg";
 import css from "./NavLinks.module.css";
+import { useAuth } from "../Context/AuthContext";
 
 export default function NavLinks() {
+  const { currentUser } = useAuth();
   return (
     <>
       <nav>
@@ -19,6 +21,11 @@ export default function NavLinks() {
         <NavLink to="/teachers" className={css.link}>
           Teachers
         </NavLink>
+        {currentUser && (
+          <NavLink to="/favorites" className={css.link}>
+            Favorites
+          </NavLink>
+        )}
       </nav>
     </>
   );

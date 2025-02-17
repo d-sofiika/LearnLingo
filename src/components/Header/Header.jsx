@@ -4,7 +4,8 @@ import LogIn from "../LogIn/LogIn";
 import Registration from "../Registration/Registration";
 import LogOut from "../LogOut/LogOut";
 import NavLinks from "../NavLinks/NavLinks";
-import { useAuth } from "../AuthContext";
+import { useAuth } from "../Context/AuthContext";
+
 
 export default function Header() {
   const [isLogOutOpen, setIsLogOutOpen] = useState(false);
@@ -13,8 +14,6 @@ export default function Header() {
  
   const { currentUser } = useAuth();
   
-
-
   return (
     <div className={`section ${css.headerContainer}`}>
       <NavLinks/>

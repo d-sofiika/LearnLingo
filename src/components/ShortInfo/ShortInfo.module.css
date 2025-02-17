@@ -23,7 +23,7 @@
   background-color: rgba(18, 20, 23, 0.2);
 }
 .starIcon {
-  fill: #ffc531;
+  fill: var(--primary-color);
   stroke: none;
 }
 

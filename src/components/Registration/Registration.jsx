@@ -6,12 +6,17 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../redux/firebase";
 import { ref, set } from "firebase/database";
 import toast, { Toaster } from "react-hot-toast";
+import { useState } from "react";
 
 export default function Registration({
   isRegistrationOpen,
   setIsRegistrationOpen,
 }) {
-  
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   const FeedbackSchema = Yup.object().shape({
     name: Yup.string()
       .min(2, "Too short!")
@@ -82,26 +87,30 @@ export default function Registration({
           validationSchema={FeedbackSchema}
         >
           <Form className={css.form}>
-            <Field
-              className={css.input}
-              type="text"
-              name="name"
-              placeholder="Name"
-            />
+            <Field type="text" name="name" placeholder="Name" />
             <ErrorMessage name="name" component="span" className={css.error} />
-            <Field
-              className={css.input}
-              type="email"
-              name="email"
-              placeholder="Email"
-            />
+            <Field type="email" name="email" placeholder="Email" />
             <ErrorMessage name="email" component="span" className={css.error} />
-            <Field
-              className={css.input}
-              type="password"
-              name="password"
-              placeholder="Password"
-            />
+            <div className={css.inputPassword}>
+              <Field
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Password"
+              />
+              <button
+                className={css.iconEye}
+                type="button"
+                onClick={togglePasswordVisibility}
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  className={showPassword && css.iconEyeColor}
+                >
+                  <use href="/sprite.svg#icon-eye-off"></use>
+                </svg>
+              </button>
+            </div>
             <ErrorMessage
               name="password"
               component="span"

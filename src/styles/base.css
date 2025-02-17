@@ -2,18 +2,9 @@
   font-family: "Roboto", sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  --main:#121417;
-  --yellow: #f4c550;
-  --beige: #fbe9ba;
-  --dark-gray: #9fbaae;
-  --light: #cbded3;
-  --dark-blue: #9fb7ce;
-  --blue: #bfd6ea;
-  --pink: #e0a39a;
-  --light-pink1: #f2c0bd;
-  --orange-pink: #f0aa8d;
-  --light-pink2: #f4c8ba;
-
+  --main: #121417;
+  --primary-color: #f4c550;
+  --accent-color: #fbe9ba;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -39,12 +30,12 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--main)
+  color: var(--main);
 }
 
 a:visited {
   text-decoration: none;
-  color: var(--main)
+  color: var(--main);
 }
 
 ul,
@@ -74,12 +65,10 @@ img {
   max-width: 100%;
   height: auto;
 }
-svg{
-fill: none;
-stroke: var(--main);
-
+svg {
+  fill: none;
+  stroke: var(--main);
 }
-
 
 button {
   padding: 0;
@@ -87,19 +76,26 @@ button {
   border: none;
   background-color: transparent;
 }
-
+input {
+  width: 100%;
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  border-radius: 12px;
+  padding: 16px 18px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 137%;
+}
 input:focus {
-  outline: none;
-  border: none;
+  outline: 1px solid rgba(18, 20, 23, 0.1);
+  border: 1px solid rgba(18, 20, 23, 0.1);
 }
 .section {
   display: flex;
   place-items: center;
   justify-content: center;
- 
-  
+
   padding: 0 64px;
 }
-.container{
+.container {
   width: 100vw;
 }

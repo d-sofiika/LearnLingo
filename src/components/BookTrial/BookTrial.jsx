@@ -93,7 +93,7 @@ export default function BookTrial({ isBookOpen, setIsBookOpen, teacher }) {
           </div>
 
           <Field
-            className={css.input}
+         
             type="text"
             name="name"
             placeholder="Full Name"
@@ -101,7 +101,7 @@ export default function BookTrial({ isBookOpen, setIsBookOpen, teacher }) {
           <ErrorMessage name="name" component="span" className={css.error} />
 
           <Field
-            className={css.input}
+           
             type="email"
             name="email"
             placeholder="Email"
@@ -109,7 +109,7 @@ export default function BookTrial({ isBookOpen, setIsBookOpen, teacher }) {
           <ErrorMessage name="email" component="span" className={css.error} />
 
           <Field
-            className={css.input}
+          
             type="phone"
             name="phone"
             placeholder="Phone number"

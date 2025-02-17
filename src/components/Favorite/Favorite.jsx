@@ -5,7 +5,7 @@ import {
 } from "../../redux/FavoritesTeacher";
 import css from "./Favorite.module.css";
 import { onValue, ref } from "firebase/database";
-import { useAuth } from "../AuthContext";
+import { useAuth } from "../Context/AuthContext";
 import { db } from "../../redux/firebase";
 import ModalAlert from "../ModalAlert/ModalAlert";
 
@@ -13,7 +13,7 @@ export default function Favorite({ teacher }) {
   const { currentUser } = useAuth();
   const [isFavorite, setIsFavorite] = useState(false);
   const [isModalAlertOpen, setIsModalAlertOpen] = useState(false);
-  
+  console.log('teacher', teacher)
   useEffect(() => {
     if (!currentUser) return;
 
@@ -41,7 +41,7 @@ export default function Favorite({ teacher }) {
         width="26"
         height="26"
         className={
-          !isFavorite ? css.heartIcon : `${css.heartIcon} ${css.heartRed}`
+          !isFavorite ? css.heartIcon : `${css.heartIcon} ${css.heartColor}`
         }
       >
         <use href="/sprite.svg#icon-heart"></use>

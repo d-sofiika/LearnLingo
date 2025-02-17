@@ -8,7 +8,7 @@ export default function CustomSelect({ options, onSelect }) {
   const handleSelect = (option) => {
     setSelectedOption(option);
     setIsOpen(false);
-    if (onSelect) onSelect(option);  
+    if (onSelect) onSelect(option);
   };
 
   return (
@@ -23,13 +23,15 @@ export default function CustomSelect({ options, onSelect }) {
         <span>{selectedOption}</span>
         <span className={css.arrow}></span>
       </div>
-      
+
       {isOpen && (
         <ul className={css.dropdown} role="listbox">
           {options.map((option, index) => (
             <li
               key={index}
-          className={`${css.option} ${selectedOption === option ? css.selected : ""}`}
+              className={`${css.option} ${
+                selectedOption === option ? css.selected : ""
+              }`}
               onClick={() => handleSelect(option)}
               role="option"
               aria-selected={selectedOption === option}

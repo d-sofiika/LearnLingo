@@ -30,6 +30,6 @@
   line-height: 125%;
 }
 .logIcon{
-    stroke: var(--yellow);
+    stroke: var(--primary-color);
     fill: none;
 }

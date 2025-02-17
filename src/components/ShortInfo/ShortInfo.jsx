@@ -4,8 +4,6 @@ import css from "./ShortInfo.module.css";
 
 export default function ShortInfo({ teacher }) {
 
-
-
   return (
     <div className={css.wrapperShortInfo}>
       <div className={css.wrapper}>

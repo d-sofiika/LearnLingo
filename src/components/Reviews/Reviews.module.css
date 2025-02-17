@@ -9,7 +9,7 @@
   height: 44px;
 }
 .starIcon {
-  fill: #ffc531;
+  fill: --primary-color;
   stroke: none;
 }
 .reviewerBox {

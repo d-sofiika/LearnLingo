@@ -58,7 +58,6 @@ input[type="radio"] {
   display: none;
 }
 
-/* Стилізація кастомної радіокнопки */
 input[type="radio"]+label {
   position: relative;
   padding-left: 28px;
@@ -67,7 +66,6 @@ input[type="radio"]+label {
   font-size: 16px;
 }
 
-/* Створення кола для радіокнопки (початковий стан) */
 input[type="radio"]+label::before {
   content: '';
   position: absolute;
@@ -76,20 +74,14 @@ input[type="radio"]+label::before {
   width: 16px;
   height: 16px;
   border: 2px solid #8a8a89;;
-  /* Чорний бордер */
   background-color: white;
-  /* Білий фон */
   border-radius: 50%;
 }
 
-/* Колір радіокнопки при виборі */
 input[type="radio"]:checked+label::before {
-  background-color: var(--yellow);
-  /* Жовта серединка */
+  background-color: var(--primary-color);
   border:4px solid white;
-  /* Білий внутрішній бордер */
-  box-shadow: 0 0 0 2px var(--yellow);
-  /* Жовтий зовнішній бордер */
+  box-shadow: 0 0 0 2px var(--primary-color);
 }
 .form {
   display: flex;
@@ -97,14 +89,6 @@ input[type="radio"]:checked+label::before {
   gap: 18px;
 }
 
-.input {
-  border: 1px solid rgba(18, 20, 23, 0.1);
-  border-radius: 12px;
-  padding: 16px 18px;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 137%;
-}
 
 input::placeholder {
   font-weight: 400;
@@ -117,7 +101,7 @@ input::placeholder {
     font-size: 18px;
     line-height: 156%;
     
-  background-color: var(--yellow);
+  background-color: var(--primary-color);
   border-radius: 12px;
     padding: 16px 0;
    

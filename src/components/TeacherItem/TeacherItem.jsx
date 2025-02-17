@@ -65,7 +65,11 @@ export default function TeachersItem({ teacher }) {
             Book trial lesson
           </button>
         )}
-              <BookTrial teacher={teacher} isBookOpen={isBookOpen} setIsBookOpen={setIsBookOpen} />
+        <BookTrial
+          teacher={teacher}
+          isBookOpen={isBookOpen}
+          setIsBookOpen={setIsBookOpen}
+        />
       </div>
     </li>
   );

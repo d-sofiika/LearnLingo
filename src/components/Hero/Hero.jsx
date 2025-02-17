@@ -1,11 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import css from "./Hero.module.css";
 
-export default function Hero() {
+
+export default function Hero({ image }) {
+
   const navigate = useNavigate();
-const handleButtonClick = () => {
-    navigate("/teachers"); 
+  const handleButtonClick = () => {
+    navigate("/teachers");
   };
+  
   return (
     <div className={`section ${css.heroContainer}`}>
       <div className={css.firstContainer}>
@@ -26,7 +29,7 @@ const handleButtonClick = () => {
         <img className={css.womanImage} src="/img/woman.svg" alt="woman" />
         <img
           className={css.iMacImage}
-          src="/img/iMac/iMac-yellow.svg"
+          src={image}
           alt="iMac"
         />
       </div>

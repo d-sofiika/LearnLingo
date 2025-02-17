@@ -1,28 +1,33 @@
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
-
+body.modal-open {
+  overflow: hidden;
+}
 .modal {
-    background: white;
-    padding: 64px;
-    border-radius: 30px;
-width: 565px;
+  background: white;
+  padding: 64px;
+  border-radius: 30px;
+  width: 565px;
 
-    position: relative;
+  position: relative;
+  max-height: 90vh;
+
+  overflow-y: auto;
 }
 
 .closeButton {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    stroke: var(--main);
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  stroke: var(--main);
 }
