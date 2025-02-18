@@ -1,8 +1,9 @@
 import { useState } from "react";
 import CustomSelect from "../CustomSelect/CustomSelect"; 
 import css from "./Filters.module.css";
+import { useEffect } from "react";
 
-export default function Filters() {
+export default function Filters({ onFilter }) {
   const [selectedLanguage, setSelectedLanguage] = useState("French");
   const [selectedLevel, setSelectedLevel] = useState("A1 Beginner");
   const [selectedPrice, setSelectedPrice] = useState("30");
@@ -15,6 +16,15 @@ export default function Filters() {
     "B2 Upper-Intermediate",
   ];
   const price = ["10", "20", "30", "40"];
+ useEffect(() => {
+ const filterData = {
+      selectedLanguage,
+      selectedLevel,
+       selectedPrice,
+   };
+   onFilter(filterData)
+  }, [selectedLanguage, selectedLevel, selectedPrice]);
+
 
   return (
     <div className={css.form}>
@@ -31,15 +41,15 @@ export default function Filters() {
         <CustomSelect
           options={level}
           value={selectedLevel}
-          onChange={setSelectedLevel}
+          onSelect={setSelectedLevel}
         />
       </div>
       <div className={css.select}>
         <p className={css.label}>Price</p>
         <CustomSelect
-          options={price}
-          value={`${selectedPrice}$`}
-          onChange={setSelectedPrice}
+          options={price.map(price => `${price} $`)}
+          value={selectedPrice}
+          onSelect={setSelectedPrice}
         />
       </div>
     </div>

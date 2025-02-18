@@ -6,7 +6,9 @@ export default function TeachersList({teachers}) {
   return (
     <div>
       {teachers.length === 0 ? (
-        <p>No teachers found.</p>
+        <div className={css.noFoundBox}>
+          <h3>Ooops!</h3>
+          <p>No teachers found. Change your filters.</p></div>
       ) : (
         <ul className={css.list}>
           {teachers.map((teacher) => (

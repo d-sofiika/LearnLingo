@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, } from "react";
 import { ThemeContext } from "../../components/Context/ThemeContext";
 import Benefits from "../../components/Benefits/Benefits";
 import Header from "../../components/Header/Header";
@@ -7,13 +7,13 @@ import ThemeChanger from "../../components/ThemeChanger/ThemeChanger";
 
 
 const HomePage = () => {
-   const { setTheme } = useContext(ThemeContext);
-        const [image, setImage] = useState("/img/iMac/iMac-yellow.svg");
+   const { theme, setTheme } = useContext(ThemeContext);
+        
   return (
     <div className="container">
       <Header />
-      <ThemeChanger setThemeColor={setTheme} setImage={setImage} />
-      <Hero image={image} />
+      <ThemeChanger setTheme={setTheme} />
+      <Hero image={theme.image} />
       <Benefits/>
     </div>
   );

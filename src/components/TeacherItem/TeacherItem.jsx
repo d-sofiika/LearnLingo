@@ -31,8 +31,7 @@ export default function TeachersItem({ teacher }) {
           {name} {surname}
         </h2>
         <p className={css.littleTitle}>
-          Speaks:
-          <span className={css.descrLanguages}>{languages?.join(", ")}</span>
+          Speaks: <span className={css.descrLanguages}>{languages?.join(", ")}</span>
         </p>
         <p className={css.littleTitle}>
           Lessons info: <span className={css.descr}>{lesson_info}</span>

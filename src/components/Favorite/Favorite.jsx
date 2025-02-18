@@ -13,7 +13,7 @@ export default function Favorite({ teacher }) {
   const { currentUser } = useAuth();
   const [isFavorite, setIsFavorite] = useState(false);
   const [isModalAlertOpen, setIsModalAlertOpen] = useState(false);
-  console.log('teacher', teacher)
+
   useEffect(() => {
     if (!currentUser) return;
 

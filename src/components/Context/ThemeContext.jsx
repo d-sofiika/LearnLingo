@@ -4,8 +4,9 @@ export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState({
-    primary: localStorage.getItem("primaryColor") || "#f4c550",  
-    accent: localStorage.getItem("accentColor") || "#fbe9ba",    
+    primary: localStorage.getItem("primaryColor") || "#f4c550",
+    accent: localStorage.getItem("accentColor") || "#fbe9ba",
+    image: localStorage.getItem("image") || "/img/iMac/iMac-yellow.svg",
   });
 
   useEffect(() => {
@@ -13,6 +14,7 @@ export const ThemeProvider = ({ children }) => {
     document.documentElement.style.setProperty("--accent-color", theme.accent);
     localStorage.setItem("primaryColor", theme.primary);
     localStorage.setItem("accentColor", theme.accent);
+    localStorage.setItem("image", theme.image);  
   }, [theme]);
 
   return (
