@@ -3,7 +3,7 @@ import css from "./Registration.module.css";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "../../redux/firebase";
+import { auth, db } from "../../api/firebase";
 import { ref, set } from "firebase/database";
 import toast, { Toaster } from "react-hot-toast";
 import { useState } from "react";

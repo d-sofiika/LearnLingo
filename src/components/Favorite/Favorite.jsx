@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import {
   addFavoriteTeacher,
   removeFavoriteTeacher,
-} from "../../redux/FavoritesTeacher";
+} from "../../api/FavoritesTeacher";
 import css from "./Favorite.module.css";
 import { onValue, ref } from "firebase/database";
 import { useAuth } from "../Context/AuthContext";
-import { db } from "../../redux/firebase";
+import { db } from "../../api/firebase";
 import ModalAlert from "../ModalAlert/ModalAlert";
 
 export default function Favorite({ teacher }) {

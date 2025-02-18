@@ -11,8 +11,8 @@ export default function TeachersList({teachers}) {
           <p>No teachers found. Change your filters.</p></div>
       ) : (
         <ul className={css.list}>
-          {teachers.map((teacher) => (
-            <TeachersItem key={teacher.id} teacher={teacher} />
+          {teachers.map((teacher, index) => (
+            <TeachersItem key={`${teacher.id}-${index}`} teacher={teacher} />
           ))}
         </ul>
       )}

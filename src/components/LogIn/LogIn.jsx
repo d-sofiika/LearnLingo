@@ -3,7 +3,7 @@ import css from "./LogIn.module.css";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../redux/firebase";
+import { auth } from "../../api/firebase";
 import toast, { Toaster } from "react-hot-toast";
 import { useState } from "react";
 

@@ -4,8 +4,8 @@ import TeachersList from "../../components/TeachersList/TeachersList";
 import css from "./FavoritesPage.module.css"
 import { useAuth } from "../../components/Context/AuthContext";
 import { ref, onValue } from "firebase/database";
-import { db } from "../../redux/firebase";
-import useTeachers from "../../redux/useTeachers";
+import { db } from "../../api/firebase";
+import useTeachers from "../../api/useTeachers";
 
 const FavoritesPage = () => {
   const { currentUser } = useAuth();
