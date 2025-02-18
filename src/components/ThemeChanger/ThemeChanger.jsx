@@ -5,7 +5,7 @@ export default function ThemeChanger({ setTheme }) {
   const [isVisible, setIsVisible] = useState(true);
 
   const handleColorChange = (primaryColor, accentColor, newImage) => {
-    console.log("Changing theme", primaryColor, accentColor, newImage);
+    
     setTheme((prev) => ({
       ...prev,
       primary: primaryColor,

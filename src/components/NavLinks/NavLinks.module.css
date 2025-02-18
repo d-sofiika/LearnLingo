@@ -16,3 +16,8 @@
     display: flex;
     gap: 28px;
 }
+.activeLink {
+    text-decoration: underline;
+
+    color: var(--primary-color)
+}

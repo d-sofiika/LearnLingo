@@ -33,10 +33,7 @@ a {
   color: var(--main);
 }
 
-a:visited {
-  text-decoration: none;
-  color: var(--main);
-}
+
 
 ul,
 ol {
