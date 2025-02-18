@@ -11,6 +11,7 @@ const TeachersPage = () => {
   const [currentTeachers, setCurrentTeachers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [hasMoreTeachers, setHasMoreTeachers] = useState(true);
+  
   const teachersPerPage = 4;
 
   useEffect(() => {
@@ -64,12 +65,13 @@ const TeachersPage = () => {
       <div className={`container ${css.teachersPageContainer}`}>
         <Filters onFilter={handleFilter} />
         <TeachersList teachers={currentTeachers} />
+        
         {hasMoreTeachers ? (
           <button className={css.btnMore} type="button" onClick={handleLoadMore}>
             Load more
           </button>
         ) : (
-          <p>No more teachers.</p>
+          <p className={css.noMore}>No more teachers.</p>
         )}
       </div>
     </>

@@ -6,6 +6,7 @@ align-items: center;
 margin-top: 100px;
 }
 .list {
+    width: 100%;
   margin-top: 32px;
   display: flex;
   flex-direction: column;

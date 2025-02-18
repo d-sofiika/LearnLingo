@@ -1,5 +1,7 @@
 .form{
     display: flex;
+    justify-content: start;
+    width: 100%;
     gap:20px ;
 
 }
