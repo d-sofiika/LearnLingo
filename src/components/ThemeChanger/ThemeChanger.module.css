@@ -57,3 +57,8 @@
 .colorButtons button:hover {
     transform: scale(1.1);
 }
+.closeBtn:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+    background-color: transparent;
+}

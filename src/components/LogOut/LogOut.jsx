@@ -2,12 +2,16 @@ import Modal from "../Modal/Modal";
 import css from "./LogOut.module.css";
 import toast, { Toaster } from "react-hot-toast";
 import { getAuth, signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function LogOut({ isLogOutOpen, setIsLogOutOpen }) {
+    const navigate = useNavigate();
+
   const handleSubmit = async () => {
     const auth = getAuth();
     try {
       await signOut(auth);
+       navigate("/");
       toast.success("Log out is successfully!");
       setIsLogOutOpen(false);
     } catch (error) {

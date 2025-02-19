@@ -42,3 +42,6 @@
   right: 20px;
   stroke: var(--main);
 }
+.closeButton:hover {
+  background-color: transparent;
+}

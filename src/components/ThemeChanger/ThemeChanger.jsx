@@ -58,8 +58,8 @@ export default function ThemeChanger({ setTheme }) {
         <p className={css.textTheme}>Change theme</p>
       </div>
 
-      <button onClick={() => setIsVisible(!isVisible)}>
-        <svg width="16" height="14" className={css.closeIcon}>
+      <button className={css.closeBtn} onClick={() => setIsVisible(!isVisible)}>
+        <svg width="16" height="14" >
           <use href="/sprite.svg#icon-close"></use>
         </svg>
       </button>

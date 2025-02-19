@@ -33,14 +33,17 @@ export default function Favorite({ teacher }) {
   };
   return (
     <>
-    <button
+      <button
+        className={
+          css.heartBtn
+        }
       onClick={currentUser ?  toggleFavorite  : ()=>{setIsModalAlertOpen(true)} }
       type="button"
     >
       <svg
         width="26"
         height="26"
-        className={
+         className={
           !isFavorite ? css.heartIcon : `${css.heartIcon} ${css.heartColor}`
         }
       >
