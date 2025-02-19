@@ -6,7 +6,7 @@ export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState({
     primary: localStorage.getItem("primaryColor") || "#f4c550",
     accent: localStorage.getItem("accentColor") || "#fbe9ba",
-    image: localStorage.getItem("image") || "/img/iMac/iMac-yellow.svg",
+    image: localStorage.getItem("image") || "/iMac/iMac-yellow.svg",
   });
 
   useEffect(() => {

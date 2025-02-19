@@ -11,15 +11,15 @@ const TeachersPage = () => {
   const [currentTeachers, setCurrentTeachers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [hasMoreTeachers, setHasMoreTeachers] = useState(true);
-  
+
   const teachersPerPage = 4;
 
   useEffect(() => {
     if (teachers.length > 0) {
-      setFilteredTeachers(teachers); 
-      setCurrentTeachers([]); 
-      setCurrentPage(1); 
-      setHasMoreTeachers(true); 
+      setFilteredTeachers(teachers);
+      setCurrentTeachers([]);
+      setCurrentPage(1);
+      setHasMoreTeachers(true);
     }
   }, [teachers]);
 
@@ -27,12 +27,12 @@ const TeachersPage = () => {
     if (filteredTeachers.length > 0) {
       const indexOfLastTeacher = currentPage * teachersPerPage;
       const indexOfFirstTeacher = indexOfLastTeacher - teachersPerPage;
-      const newTeachers = filteredTeachers.slice(indexOfFirstTeacher, indexOfLastTeacher);
+      const newTeachers = filteredTeachers.slice(
+        indexOfFirstTeacher,
+        indexOfLastTeacher
+      );
 
-      setCurrentTeachers((prevTeachers) => [
-        ...prevTeachers,
-        ...newTeachers,
-      ]);
+      setCurrentTeachers((prevTeachers) => [...prevTeachers, ...newTeachers]);
 
       if (indexOfLastTeacher >= filteredTeachers.length) {
         setHasMoreTeachers(false);
@@ -50,29 +50,33 @@ const TeachersPage = () => {
     );
 
     setFilteredTeachers(filtered);
-    setCurrentPage(1); 
+    setCurrentPage(1);
     setHasMoreTeachers(filtered.length > teachersPerPage);
-    setCurrentTeachers([]); 
+    setCurrentTeachers([]);
   };
 
   const handleLoadMore = () => {
     setCurrentPage((prevPage) => prevPage + 1);
   };
-
+  console.log("first", currentTeachers);
   return (
     <>
       <Header />
       <div className={`container ${css.teachersPageContainer}`}>
         <Filters onFilter={handleFilter} />
         <TeachersList teachers={currentTeachers} />
-        
-        {hasMoreTeachers ? (
-          <button className={css.btnMore} type="button" onClick={handleLoadMore}>
-            Load more
-          </button>
-        ) : (
-          <p className={css.noMore}>No more teachers.</p>
-        )}
+        {currentTeachers.length > 0 &&
+          (hasMoreTeachers ? (
+            <button
+              className={css.btnMore}
+              type="button"
+              onClick={handleLoadMore}
+            >
+              Load more
+            </button>
+          ) : (
+            <p className={css.noMore}>No more teachers.</p>
+          ))}
       </div>
     </>
   );
