@@ -24,7 +24,7 @@ export default function ThemeChanger({ setTheme }) {
       <div className={css.colorButtons}>
         <button
           onClick={() =>
-            handleColorChange("#f4c550", "#fbe9ba", "/img/iMac/iMac-yellow.svg")
+            handleColorChange("#f4c550", "#fbe9ba", "/iMac/iMac-yellow.svg")
           }
         ></button>
         <button
@@ -32,7 +32,7 @@ export default function ThemeChanger({ setTheme }) {
             handleColorChange(
               "#9fbaae",
               "#cbded3",
-              "/img/iMac/iMac-lightBlue.svg"
+              "/iMac/iMac-lightBlue.svg"
             )
           }
         ></button>
@@ -41,18 +41,18 @@ export default function ThemeChanger({ setTheme }) {
             handleColorChange(
               "#9fb7ce",
               "#bfd6ea",
-              "/img/iMac/iMac-darkBlue.svg"
+              "/iMac/iMac-darkBlue.svg"
             )
           }
         ></button>
         <button
           onClick={() =>
-            handleColorChange("#e0a39a", "#f2c0bd", "/img/iMac/iMac-red.svg")
+            handleColorChange("#e0a39a", "#f2c0bd", "/iMac/iMac-red.svg")
           }
         ></button>
         <button
           onClick={() =>
-            handleColorChange("#f0aa8d", "#f4c8ba", "/img/iMac/iMac-orange.svg")
+            handleColorChange("#f0aa8d", "#f4c8ba", "/iMac/iMac-orange.svg")
           }
         ></button>
         <p className={css.textTheme}>Change theme</p>
