@@ -2,7 +2,6 @@ import css from "./Reviews.module.css";
 import { VscAccount } from "react-icons/vsc";
 
 export default function Reviews({ reviews }) {
-  console.log("reviews", reviews);
 
   return (
     <ul className={css.reviewsList}>

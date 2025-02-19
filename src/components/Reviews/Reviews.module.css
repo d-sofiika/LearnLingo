@@ -1,7 +1,7 @@
-.reviewsList{
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 .userIcon {
   fill: var(--main);
@@ -9,14 +9,14 @@
   height: 44px;
 }
 .starIcon {
-  fill: --primary-color;
+  fill: var(--primary-color);
   stroke: none;
 }
 .reviewerBox {
   display: flex;
   gap: 12px;
   margin-bottom: 16px;
-align-items: center
+  align-items: center;
 }
 .name {
   font-weight: 500;
