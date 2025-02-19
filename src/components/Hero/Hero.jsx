@@ -26,7 +26,7 @@ export default function Hero({ image }) {
         </button>
       </div>
       <div className={css.secondContainer}>
-        <img className={css.womanImage} src="../../../img/woman.svg" alt="woman" />
+        <img className={css.womanImage} src="../../img/woman.svg" alt="woman" />
         <img
           className={css.iMacImage}
           src={image}
