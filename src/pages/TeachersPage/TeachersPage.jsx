@@ -40,25 +40,31 @@ const TeachersPage = () => {
     }
   }, [currentPage, filteredTeachers]);
 
-  const handleFilter = (filters) => {
-    const { selectedLanguage, selectedLevel, selectedPrice } = filters;
-    const filtered = teachers.filter(
-      (teacher) =>
-        teacher.languages.includes(selectedLanguage) &&
-        teacher.levels.includes(selectedLevel) &&
-        teacher.price_per_hour <= parseInt(selectedPrice)
-    );
+const handleFilter = (filters) => {
+  const { selectedLanguage, selectedLevel, selectedPrice } = filters;
 
-    setFilteredTeachers(filtered);
-    setCurrentPage(1);
-    setHasMoreTeachers(filtered.length > teachersPerPage);
-    setCurrentTeachers([]);
-  };
+  const filtered = teachers.filter((teacher) => {
+    const matchesLanguage =
+      selectedLanguage === "All" || teacher.languages.includes(selectedLanguage);
+
+    const matchesLevel =
+      selectedLevel === "All" || teacher.levels.includes(selectedLevel);
+
+    const matchesPrice =
+      selectedPrice === "All" || teacher.price_per_hour <= parseInt(selectedPrice);
+
+    return matchesLanguage && matchesLevel && matchesPrice;
+  });
+
+  setFilteredTeachers(filtered);
+  setCurrentPage(1);
+  setHasMoreTeachers(filtered.length > teachersPerPage);
+  setCurrentTeachers([]);
+};
 
   const handleLoadMore = () => {
     setCurrentPage((prevPage) => prevPage + 1);
   };
-  console.log("first", currentTeachers);
   return (
     <>
       <Header />
