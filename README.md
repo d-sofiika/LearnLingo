@@ -1,4 +1,5 @@
 **LearnLingo**
+
 Project layout - https://www.figma.com/design/dewf5jVviSTuWMMyU3d8Mc/Learn-Lingo?node-id=0-1&p=f&t=JmfR6C0fLCo36u8u-
 
 LearnLingo is a web application designed for a company that offers online language learning services with professional tutors. The app allows users to browse a list of available tutors, filter them based on specific criteria, and manage a personal list of favorite tutors.
