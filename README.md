@@ -1,10 +1,9 @@
 **LearnLingo**
-
-Project Overview
+Project layout - https://www.figma.com/design/dewf5jVviSTuWMMyU3d8Mc/Learn-Lingo?node-id=0-1&p=f&t=JmfR6C0fLCo36u8u-
 
 LearnLingo is a web application designed for a company that offers online language learning services with professional tutors. The app allows users to browse a list of available tutors, filter them based on specific criteria, and manage a personal list of favorite tutors.
 
-_Features_
+**Features**
 
 - Home Page: Displays company benefits and a call-to-action link that redirects to the "Teachers" page.
 
@@ -18,7 +17,7 @@ _Features_
 
 - Tutor Cards: Displays tutor details including name, languages, rating, price, and reviews.
 
-_Favorite Tutors:_
+**Favorite Tutors:**
 
 - Non-authenticated users receive a prompt to log in.
 
@@ -30,7 +29,7 @@ _Favorite Tutors:_
 
 **Accent Color Customization:** Users can change accent colors in the UI.
 
-Technologies Used
+**Technologies Used**
 
 Frontend: React, React Router, React Hook Form, Yup
 
@@ -42,16 +41,14 @@ Styling: CSS Modules, Modern Normalize
 
 Build Tool: Vite
 
-Installation & Setup
+**Installation & Setup**
 
 Clone the repository:
 
 git clone https://github.com/d-sofiika/LearnLingo.git
 cd LearnLingo
 
-Install dependencies:
-
-npm install
+Install dependencies: npm install
 
 Create a .env file and add Firebase configuration:
 
@@ -60,10 +57,5 @@ VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
 VITE_FIREBASE_DATABASE_URL=your_database_url
 VITE_FIREBASE_PROJECT_ID=your_project_id
 
-Start the development server:
+Start the development server: npm run dev
 
-npm run dev
-
-License
-
-This project is open-source and available under the MIT License.
